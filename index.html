@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>영화 검색기</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>당신의 기억 속에 남은 영화</h1>
+    </header>
+    <div class="mv_search">
+      <input
+        type="text"
+        id="input"
+        placeholder="영화 제목을 입력해 주세요."
+        autofocus
+      />
+      <button type="button" id="input_btn">검색</button>
+    </div>
+    <div id="pre_div"></div>
+    <section class="card-list" id="mv_cardList"></section>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+}
+
+.movie-card {
+  margin: 25px;
+  padding: 15px;
+  width: 300px;
+  justify-self: center;
+  background-color: black;
+  color: white;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 100%;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  cursor: pointer;
+}
+
+.movie-card img:hover {
+  opacity: 0.9;
+}
+
+.movie-card h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.movie-card p {
+  text-align: center;
+  line-height: 25px;
+}
+
+.movie-card h4 {
+  color: red;
+  text-align: center;
+  line-height: 25px;
+}
+
+.movie-list {
+  margin: 20px auto 0px auto;
+  padding: 20px;
+  width: 350px;
+  justify-self: center;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 3px;
+  border-color: white;
+  color: white;
+}
+
+.movie-list h3 {
+  text-align: center;
+  margin: 0px 0px 20px 0px;
+}
+
+header {
+  color: white;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20131007_97%2Fasura1000_1381084786369G1dhE_JPEG%2FM1.jpg&type=a340");
+  background-position: center;
+  background-size: cover;
+}
+
+.mv_search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  border-top-style: solid;
+
+  border-bottom-style: solid;
+  border-color: white;
+}
+
+.mv_search input {
+  margin-left: 20px;
+  min-width: 200px;
+  padding: 5px 10px;
+}
+
+.mv_search button {
+  margin-left: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+body {
+  background-color: black;
+}
