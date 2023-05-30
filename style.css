@@ -81,6 +81,8 @@ header {
     url("https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20131007_97%2Fasura1000_1381084786369G1dhE_JPEG%2FM1.jpg&type=a340");
   background-position: center;
   background-size: cover;
+
+  cursor: pointer;
 }
 
 .mv_search {
