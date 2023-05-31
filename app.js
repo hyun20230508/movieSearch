@@ -15,18 +15,22 @@ const options = {
 
 //fetch로 가져온 결과 정보를 리턴합니다.
 const fetchApi = async () => {
-  let fetchInfo = await fetch(
+  let response = await fetch(
     "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
     options
   );
-
-  let newFetchInfo = await fetchInfo.json();
-  return newFetchInfo.results;
+  console.log(response);
+  if (response.status > 199 && response.status < 300) {
+    let newFetchInfo = await response.json();
+    return newFetchInfo.results;
+  } else {
+    alert(`HTTP 오류 발생 / 상태 코드: ` + response.status);
+  }
 };
 
 //fetchApi에서 가져온 Api정보를 담아둡니다.(새로고침 시 호출 )
 const start = async () => {
-  fetchApiInfo = fetchApi();
+  fetchApiInfo = await fetchApi();
   movieList();
 };
 
@@ -45,8 +49,8 @@ $input_btn.addEventListener("click", function () {
 });
 
 //저장된 api의 정보값을 받아와서 가공하여 비교합니다.
-const cpTxt = async () => {
-  let res = await fetchApiInfo;
+const cpTxt = () => {
+  let res = fetchApiInfo;
   let count = 0;
   let valTxt = $input.value.toLowerCase().replaceAll(" ", "");
   res.forEach(function (results, i) {
@@ -105,8 +109,8 @@ function delCard() {
 }
 
 //저장된 api 정보를 통해서 검색 가능한 영화 리스트 목록으로 가공해줍니다.
-const movieList = async () => {
-  let res = await fetchApiInfo;
+const movieList = () => {
+  let res = fetchApiInfo;
   let div = document.createElement("div");
   div.className = "movie-list";
   $pre_div.append(div);
