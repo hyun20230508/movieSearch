@@ -20,6 +20,7 @@ const fetchApi = async () => {
     options
   );
   console.log(response);
+  // http상태 코드의 값이 200~299의 범위가 아닐 경우 오류 발생알림과 상태코드를 띄워줍니다.
   if (response.status > 199 && response.status < 300) {
     let newFetchInfo = await response.json();
     return newFetchInfo.results;
@@ -52,6 +53,8 @@ $input_btn.addEventListener("click", function () {
 const cpTxt = () => {
   let res = fetchApiInfo;
   let count = 0;
+  // 사용자들의 편한 검색을 위해서
+  // input의 value 값과 res의 title값을 소문자로 치환 후 공백을 제거합니다.
   let valTxt = $input.value.toLowerCase().replaceAll(" ", "");
   res.forEach(function (results, i) {
     let mv_namelist = results["title"].toLowerCase().replaceAll(" ", "");
@@ -60,6 +63,9 @@ const cpTxt = () => {
       createCard(res, i);
     }
   });
+  // 카운트 값을 통해서 input의 value값과 일치하는 영화가 존재하는지 여부 파악과
+  // 추가적으로 일치하는 영화의 개수도 확인이 가능합니다.
+  // (가시적으로 표현은 안했지만 필요할 경우 사용이 가능합니다.)
   if (count === 0) {
     alert("일치하는 영화가 존재하지 않습니다.");
     start();
@@ -108,7 +114,8 @@ function delCard() {
   return;
 }
 
-//저장된 api 정보를 통해서 검색 가능한 영화 리스트 목록으로 가공해줍니다.
+//사용자들이 한 눈에 검색 가능한 영화 리스트를 확인 할 수 있도록 만들었습니다.
+//저장된 api 정보를 통해서 map을 이용하여 검색 가능한 영화 배열로 가공해줍니다.
 const movieList = () => {
   let res = fetchApiInfo;
   let div = document.createElement("div");
