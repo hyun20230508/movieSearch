@@ -19,7 +19,7 @@ const fetchApi = async () => {
     "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
     options
   );
-  console.log(response);
+
   // http상태 코드의 값이 200~299의 범위가 아닐 경우 오류 발생알림과 상태코드를 띄워줍니다.
   if (response.status > 199 && response.status < 300) {
     let newFetchInfo = await response.json();
