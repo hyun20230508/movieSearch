@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 50px;
+}
+
+.infoBox {
+  color: white;
+  height: 400px;
+  display: flex;
+
+  background-position: center;
+  background-size: cover;
+}
+.info {
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.info2 {
+  margin-top: 30px;
+  padding: 1rem;
+  text-align: left;
+}
+
+.info img {
+  width: 230px;
+  margin-left: 25px;
+  justify-content: left;
+  align-items: left;
+  border-radius: 20px;
+}
+
+.info h3 {
+  width: 290px;
+  margin-left: 25px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flexBox {
+  display: flex;
+  justify-content: center;
+}
+
+.mainBox {
+  display: flex;
+  justify-content: center;
+  background-color: pink;
+  background-position: center;
+  background-size: cover;
+}
+
+.reviewBox {
+  width: 100%;
+  align-items: left;
+  text-align: center;
+  background-color: blue;
+  background-position: center;
+  background-size: cover;
+}
+
+.otherBox {
+  width: 100px;
+  justify-content: right;
+  text-align: center;
+  background-color: green;
+  background-position: center;
+  background-size: cover;
+}

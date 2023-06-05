@@ -2,6 +2,7 @@ const $input_btn = document.querySelector("#input_btn");
 const $input = document.querySelector("#input");
 const $mv_cardList = document.querySelector("#mv_cardList");
 const $pre_div = document.querySelector("#pre_div");
+
 let fetchApiInfo;
 
 const options = {
@@ -80,27 +81,24 @@ function createCard(res, i) {
   div.id = res[i]["id"];
   $mv_cardList.append(div);
 
-  let id = div.id;
-  let t = res[i]["title"];
+  div.innerHTML = `<img src=https://image.tmdb.org/t/p/w300${res[i]["poster_path"]}>
+                  <h3>${res[i]["title"]}</h3>
+                  <p>${res[i]["overview"]}</p>
+                  <h4>Rating: ${res[i]["vote_average"]}</h4>`;
+}
 
-  let img = document.createElement("img");
-  img.src = `https://image.tmdb.org/t/p/w300${res[i]["poster_path"]}`;
-  img.setAttribute("onclick", `imgBtn(\`${id}\`, \`${t}\`)`);
-  div.append(img);
+$mv_cardList.addEventListener("click", handleClickCard);
 
-  let h3 = document.createElement("h3");
-  h3.innerHTML = res[i]["title"];
-  div.append(h3);
+// 이벤트 위임: 하위요소에서 발생한 이벤트를 상위요소에서 처리하도록 해줍니다.
+function handleClickCard({ target }) {
+  // 카드 외 영역 클릭 시 무시
+  if (target === $mv_cardList) return;
 
-  let p = document.createElement("p");
-  p.innerHTML = `${res[i]["overview"]}`;
-  div.append(p);
-
-  let p1 = document.createElement("h4");
-  p1.innerHTML = `Rating: ${res[i]["vote_average"]}`;
-  div.append(p1);
-
-  return;
+  if (target.matches(".movie-card")) {
+    window.location.href = `movieinfo.html?id=${target.id}`;
+  } else {
+    window.location.href = `movieinfo.html?id=${target.parentNode.id}`;
+  }
 }
 
 //작성되어있는 Card를 전부 지워줍니다.
