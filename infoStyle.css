@@ -12,6 +12,7 @@ header {
   color: white;
   height: 400px;
   display: flex;
+  min-width: 800px;
 
   background-position: center;
   background-size: cover;
@@ -48,29 +49,111 @@ header {
   display: flex;
   justify-content: center;
 }
+.flexBox p {
+  min-width: 400px;
+  margin-bottom: 0;
+}
 
 .mainBox {
   display: flex;
+  height: 600px;
   justify-content: center;
-  background-color: pink;
   background-position: center;
   background-size: cover;
+  background-color: black;
+}
+
+.reviewBigBox {
+  display: flex;
 }
 
 .reviewBox {
+  margin-top: 10px;
   width: 100%;
-  align-items: left;
+  max-width: 800px;
+  min-width: 800px;
   text-align: center;
-  background-color: blue;
-  background-position: center;
-  background-size: cover;
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.reviewBox h2 {
+  height: 50px;
+  padding-top: 5px;
+  color: white;
+  border-style: none none solid none;
+  border-width: 5px;
+  text-align: center;
 }
 
 .otherBox {
-  width: 100px;
+  margin-top: 10px;
+  margin-left: 5px;
+  width: 200px;
+  min-width: 200px;
   justify-content: right;
   text-align: center;
-  background-color: green;
-  background-position: center;
-  background-size: cover;
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.reviewInputBox {
+  align-items: center;
+  padding-top: 7px;
+  width: 290px;
+  height: 160px;
+  margin: 0 auto;
+  border-style: solid;
+  border-width: 5px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.userInput {
+  width: 98px;
+  height: 30px;
+  line-height: 35px;
+  border-radius: 5px;
+}
+
+.pwdInput {
+  width: 118px;
+  height: 30px;
+  line-height: 35px;
+  border-radius: 5px;
+}
+
+.reviewSaveBtn {
+  vertical-align: -1.5px;
+  width: 39px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.txtBox {
+  margin-top: 9px;
+}
+
+.txtInput {
+  padding-top: 5px;
+  width: 267px;
+  height: 95px;
+  border-radius: 5px;
+}
+
+.reviewListBox {
+  width: 60%;
+  min-width: 400px;
+  margin: 0 auto;
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px;
+}
+.reviewList {
+  margin-top: 10px;
 }

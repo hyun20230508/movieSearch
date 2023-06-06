@@ -14,10 +14,29 @@
     <div class="infoBox"></div>
     <div class="mainBox">
       <div class="reviewBox">
-        <br />
-        <h2>리뷰 작성하기</h2>
-        <br />
-        <form></form>
+        <h2>Review</h2>
+        <br>
+        <div class="reviewBigBox">
+          <div class="reviewInputBox">
+            <div class="userpwdBox">
+              <input class="userInput" placeholder="작성자명" maxlength="6"></input>
+              <input class="pwdInput" type="password" minlength="7"maxlength="10" placeholder="비밀번호"></input>
+              <button type="button" class="reviewSaveBtn">저장</button>
+            </div>
+            <div class="txtBox">
+              <textarea class="txtInput" placeholder="리뷰내용"></textarea>
+            </div>
+          </div>
+          <div class="reviewListBox" style="height: 500px; overflow: auto">
+            <ul type="none">
+              <li class="reviewList">가나다라</li>
+              <hr>
+              <li class="reviewList">가나다라</li>
+              <hr>
+
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="otherBox">
         <p>호로록</p>

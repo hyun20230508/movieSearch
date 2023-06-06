@@ -54,7 +54,7 @@ const loadMovieInfo = () => {
                     <div class="info2">
                         <h3>${res["title"]}</h3>
                         <p>
-                            상영시작일: ${res["release_date"]}
+                            개봉일: ${res["release_date"]}
                         </p>
                         <p>
                             장르: ${genres}
