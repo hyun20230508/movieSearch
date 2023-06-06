@@ -5,7 +5,41 @@
 }
 
 header {
-  height: 50px;
+  padding: 3px 3px 3px 3px;
+  height: 60px;
+  display: flex;
+  background-color: black;
+}
+
+.upBar {
+  display: flex;
+  padding-top: 5px;
+  width: 100%;
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.homeBtn {
+  width: 150px;
+  height: 35px;
+  margin: 0 auto;
+  /* color: white; */
+  border-radius: 5px;
+}
+
+.homeBtnImg {
+  width: 100%;
+  height: 100%;
+}
+
+.loginBtn {
+  height: 28px;
+  background-color: white;
+  margin-top: 3px;
+  margin-right: 5px;
+  border-radius: 3px;
 }
 
 .infoBox {
@@ -70,7 +104,7 @@ header {
 .reviewBox {
   margin-top: 10px;
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   min-width: 800px;
   text-align: center;
   color: white;
@@ -88,7 +122,7 @@ header {
   text-align: center;
 }
 
-.otherBox {
+/* .otherBox {
   margin-top: 10px;
   margin-left: 5px;
   width: 200px;
@@ -99,7 +133,7 @@ header {
   border-radius: 10px;
   border-style: solid;
   border-width: 5px;
-}
+} */
 
 .reviewInputBox {
   align-items: center;
@@ -113,7 +147,7 @@ header {
   border-radius: 10px;
 }
 
-.userInput {
+.nameInput {
   width: 98px;
   height: 30px;
   line-height: 35px;
@@ -146,7 +180,7 @@ header {
 }
 
 .reviewListBox {
-  width: 60%;
+  width: 65%;
   min-width: 400px;
   margin: 0 auto;
   color: white;
@@ -154,6 +188,19 @@ header {
   border-style: solid;
   border-width: 5px;
 }
+
 .reviewList {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-right: 10px;
+  padding-bottom: 10px;
+  text-align: right;
+}
+
+.reviewList h5 {
+  margin-top: 5px;
+  color: gray;
+}
+
+.UDbox {
+  margin-top: 5px;
 }
