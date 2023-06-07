@@ -114,13 +114,37 @@ header {
   border-width: 5px;
 }
 
+.h2andSort {
+  display: flex;
+  color: white;
+  justify-content: center;
+  border-style: none none solid none;
+  border-width: 5px;
+}
+
 .reviewBox h2 {
+  margin: 0 auto;
   height: 50px;
   padding-top: 5px;
   color: white;
-  border-style: none none solid none;
-  border-width: 5px;
-  text-align: center;
+}
+
+.sortOn {
+  align-content: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 30px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.sortOff {
+  align-content: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 30px;
+  text-align: right;
+  cursor: pointer;
 }
 
 .reviewInputBox {
@@ -152,6 +176,7 @@ header {
   width: 39px;
   height: 30px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .txtBox {
@@ -162,27 +187,6 @@ header {
   padding-top: 5px;
   width: 267px;
   height: 95px;
-  border-radius: 5px;
-}
-
-.userBox2 {
-  display: flex;
-  justify-content: center;
-}
-
-.updateTitle {
-  width: 216px;
-  height: 30px;
-  line-height: 35px;
-  border-radius: 5px;
-  margin-left: 20px;
-}
-
-.updateSaveBtn {
-  margin-top: 5px;
-  margin-right: 7px;
-  width: 39px;
-  height: 30px;
   border-radius: 5px;
 }
 

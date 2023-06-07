@@ -11,17 +11,21 @@
     <header>
       <div class="upBar">
         <button class="homeBtn">
-          <img class="homeBtnImg" src="./resource/logo.png" alt="메인화면" />
+          <img class="homeBtnImg" src="../resource/logo.png" alt="메인화면" />
         </button>
         <button class="loginBtn">
-          <img class="homeBtnImg" src="./resource/login.png" alt="로그인" />
+          <img class="homeBtnImg" src="../resource/login.png" alt="로그인" />
         </button>
       </div>
     </header>
     <div class="infoBox"></div>
     <div class="mainBox">
       <div class="reviewBox">
-        <h2>Review</h2>
+        <div class="h2andSort">
+          <h2>Review</h2>
+          <button type="button" class="sortOff" id="sortOff">등록순</button>
+          <button type="button" class="sortOn" id="sortOn">최신순</button>
+        </div>
         <br />
         <div class="reviewBigBox">
           <div class="reviewInputBox">
@@ -38,19 +42,6 @@
             </div>
           </div>
           <div class="reviewListBox" style="height: 500px; overflow: auto">
-            <div class="reviewupdateBox" style="display: none">
-              <div class="userBox2">
-                <p class="updateTitle">리뷰 수정하기</p>
-                <button type="button" class="updateSaveBtn">수정</button>
-              </div>
-              <div class="txtBox">
-                <textarea
-                  class="txtInput"
-                  placeholder="리뷰내용"
-                  maxlength="100"
-                ></textarea>
-              </div>
-            </div>
             <ul type="none"></ul>
           </div>
         </div>

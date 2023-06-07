@@ -95,9 +95,9 @@ function handleClickCard({ target }) {
   if (target === $mv_cardList) return;
 
   if (target.matches(".movie-card")) {
-    window.location.href = `movieinfo.html?id=${target.id}`;
+    window.location.href = `info/movieinfo.html?id=${target.id}`;
   } else {
-    window.location.href = `movieinfo.html?id=${target.parentNode.id}`;
+    window.location.href = `info/movieinfo.html?id=${target.parentNode.id}`;
   }
 }
 

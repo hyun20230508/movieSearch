@@ -3,9 +3,13 @@ const $reviewSaveBtn = document.querySelector(".reviewSaveBtn");
 const $txtInput = document.querySelector(".txtInput");
 const $reviewListBox = document.querySelector(".reviewListBox");
 const $homeBtn = document.querySelector(".homeBtn");
+const $loginBtn = document.querySelector(".loginBtn");
+const $sortOn = document.querySelector("#sortOn");
+const $sortOff = document.querySelector("#sortOff");
 
 let movieInfo;
 let id = location.search.split("=")[1];
+let sortOnOff = 0;
 
 const options = {
   method: "GET",
@@ -96,7 +100,7 @@ function saveReview() {
   let loginY = JSON.parse(localStorage.getItem("login"));
   if (loginY == null) {
     alert("로그인을 해주세요.");
-    window.location.href = `login.html?id=${id}`;
+    window.location.href = `../login/login.html?id=${id}`;
     return;
   }
   if ($txtInput.value === "") {
@@ -109,25 +113,30 @@ function saveReview() {
   } else {
     listNum = reviewArr[reviewArr.length - 1][3] + 1;
   }
+  let d = new Date();
+  let t = `${d.getFullYear()}.${d.getMonth()}.${d.getDate()} ${d.toLocaleTimeString()}`;
   //reviewArr배열에 새로운 값을 push해줌
-  reviewArr.push([loginY[0], $txtInput.value, loginY[1], listNum]);
+  reviewArr.push([loginY[0], $txtInput.value, loginY[1], listNum, t]);
   //reciewArr배열을 json화 시켜서 로컬 스토리지에 저장
   localStorage.setItem(id, JSON.stringify(reviewArr));
   $txtInput.value = "";
   alert("저장되었습니다.");
-  reloadReview();
   loadReview();
 }
 
 //로컬스토리지에서 id(쿼리스트링)을 지정한 값에 해당하는 정보만 가져옴
 function loadReview() {
+  reloadReview();
   let review = JSON.parse(localStorage.getItem(id));
+  if (sortOnOff == 1) {
+    review.reverse();
+  }
   let ul = document.createElement("ul");
   ul.type = "none";
   for (let i = 0; i < review.length; i++) {
     ul.innerHTML += `<li class="reviewList">
                       <p class="reviewText">${review[i][1]}</p>
-                      <h5 class="reviewName">${review[i][0]}</h5>
+                      <h5 class="reviewName">${review[i][0]} -${review[i][4]}-</h5>
                       <div class="UDbox" id="${review[i][3]}">
                       <button class="updateBtn">수정</button>
                       <button class="delBtn">삭제</button>
@@ -149,14 +158,16 @@ const $delBtn = document.querySelector(".delBtn");
 
 $reviewListBox.addEventListener("click", handleClickReviewListBox);
 
+//이벤트 버블링을 이용한 버튼클릭
 function handleClickReviewListBox({ target }) {
   if (target === $delBtn) return;
   let review = JSON.parse(localStorage.getItem(id));
   let loginY = JSON.parse(localStorage.getItem("login"));
+
   if (target.matches(".delBtn")) {
     if (loginY == null) {
       alert("로그인을 해주세요.");
-      window.location.href = `login.html?id=${id}`;
+      window.location.href = `../login/login.html?id=${id}`;
       return;
     }
     //식별번호
@@ -169,7 +180,7 @@ function handleClickReviewListBox({ target }) {
           //원하는 부분이 삭제된 배열을 로컬스토리지에 다시 저장
           localStorage.setItem(id, JSON.stringify(review));
           //리로드 리뷰
-          reloadReview();
+
           loadReview();
         } else {
           alert("본인이 작성한 댓글이 아닙니다.");
@@ -179,19 +190,27 @@ function handleClickReviewListBox({ target }) {
   }
 
   if (target.matches(".updateBtn")) {
+    if (loginY == null) {
+      alert("로그인을 해주세요.");
+      window.location.href = `../login/login.html?id=${id}`;
+      return;
+    }
     // console.log($reviewupdateBox);
     let reviewListNum = target.parentNode.parentNode.children[2].id;
+    let d = new Date();
+    let t = `${d.getFullYear()}.${d.getMonth()}.${d.getDate()} ${d.toLocaleTimeString()}(수정)`;
     review.forEach((e) => {
       if (e[3] == reviewListNum) {
         if (loginY[0] == e[0] && loginY[1] == e[2]) {
+          let updateText = prompt("수정할 리뷰를 적어주세요.");
           //인덱스 번호 확인해서 삭제
           let [a, b, c, d] = review[review.indexOf(e)];
-          review.splice(review.indexOf(e), 1, [a, $txtInput.value, c, d]);
+          review.splice(review.indexOf(e), 1, [a, updateText, c, d, t]);
           //원하는 부분이 삭제된 배열을 로컬스토리지에 다시 저장
           localStorage.setItem(id, JSON.stringify(review));
           $txtInput.value = "";
           //리로드 리뷰
-          reloadReview();
+
           loadReview();
         } else {
           alert("본인이 작성한 댓글이 아닙니다.");
@@ -201,14 +220,22 @@ function handleClickReviewListBox({ target }) {
   }
 }
 
-$homeBtn.addEventListener("click", (e) => {
-  window.location.href = "index.html?login";
+$homeBtn.addEventListener("click", () => {
+  window.location.href = "../index.html?login";
 });
 
-const $loginBtn = document.querySelector(".loginBtn");
+$loginBtn.addEventListener("click", () => {
+  window.location.href = `../login/login.html?id=${id}`;
+});
 
-$loginBtn.addEventListener("click", (e) => {
-  window.location.href = `login.html?id=${id}`;
+$sortOn.addEventListener("click", () => {
+  sortOnOff = 1;
+  loadReview();
+});
+
+$sortOff.addEventListener("click", () => {
+  sortOnOff = 0;
+  loadReview();
 });
 
 infoStart(id);
