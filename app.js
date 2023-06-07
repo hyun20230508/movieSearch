@@ -141,5 +141,11 @@ const movieList = () => {
 const imgBtn = (id, t) => {
   return alert(`${t}의 id값은 ${id}입니다.`);
 };
+//로딩 시 로그인 상태 제거
+if (!location.search) {
+  window.addEventListener("load", function () {
+    localStorage.removeItem("login");
+  });
+}
 
 start();

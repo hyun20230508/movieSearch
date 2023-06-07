@@ -1,0 +1,43 @@
+body {
+  background-color: black;
+}
+
+.loginBox h1 {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  width: 200px;
+  margin-top: 200px;
+  border-style: solid;
+  color: white;
+  border-width: 3px;
+  cursor: pointer;
+}
+
+.loginForm {
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  border-style: solid;
+  color: white;
+  border-width: 3px;
+}
+
+.loginIdInput {
+  height: 20px;
+}
+
+.loginPwdInput {
+  margin-top: 10px;
+  height: 20px;
+}
+
+.loginBtnBox {
+  margin-top: 10px;
+  margin-right: 11px;
+  text-align: right;
+}
